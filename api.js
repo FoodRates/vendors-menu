@@ -65,7 +65,7 @@ const createMenu = async (event) => {
   return response;
 };
 
-const updatePost = async (event) => {
+const updateMenu = async (event) => {
   const response = { statusCode: 200 };
 
   try {
@@ -169,7 +169,7 @@ const getAllPosts = async () => {
 module.exports = {
   getMenu,
   createMenu,
-  updatePost,
+  updateMenu,
   deletePost,
   getAllPosts,
 };
