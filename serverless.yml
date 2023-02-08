@@ -43,20 +43,20 @@ functions:
         Action:
           - "dynamodb:PutItem"
         Resource: !GetAtt VendorsMenusTable.Arn
-  # updatePost:
-  #   handler: api.updatePost
-  #   name: update-post
-  #   memorySize: 128 # mb
-  #   timeout: 5 # seconds
-  #   events:
-  #     - http:
-  #         path: post/{postId}
-  #         method: PUT
-  #   iamRoleStatements:
-  #     - Effect: "Allow"
-  #       Action:
-  #         - "dynamodb:UpdateItem"
-  #       Resource: !GetAtt VendorsMenusTable.Arn
+  updateMenu:
+    handler: api.updateMenu
+    name: update-menu
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - http:
+          path: menu/{vendorId}
+          method: PUT
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:UpdateItem"
+        Resource: !GetAtt VendorsMenusTable.Arn
   # deletePost:
   #   handler: api.deletePost
   #   name: delete-post
