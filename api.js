@@ -113,25 +113,25 @@ const updateMenu = async (event) => {
   return response;
 };
 
-const deletePost = async (event) => {
+const deleteMenu = async (event) => {
   const response = { statusCode: 200 };
 
   try {
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: marshall({ postId: event.pathParameters.postId }),
+      Key: marshall({ vendorId: event.pathParameters.vendorId }),
     };
     const deleteResult = await db.send(new DeleteItemCommand(params));
 
     response.body = JSON.stringify({
-      message: "Successfully deleted post.",
+      message: "Successfully deleted vendor.",
       deleteResult,
     });
   } catch (e) {
     console.error(e);
     response.statusCode = 500;
     response.body = JSON.stringify({
-      message: "Failed to delete post.",
+      message: "Failed to delete vendor.",
       errorMsg: e.message,
       errorStack: e.stack,
     });
@@ -170,6 +170,6 @@ module.exports = {
   getMenu,
   createMenu,
   updateMenu,
-  deletePost,
+  deleteMenu,
   getAllPosts,
 };
