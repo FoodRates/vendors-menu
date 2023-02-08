@@ -57,20 +57,20 @@ functions:
         Action:
           - "dynamodb:UpdateItem"
         Resource: !GetAtt VendorsMenusTable.Arn
-  # deletePost:
-  #   handler: api.deletePost
-  #   name: delete-post
-  #   memorySize: 128 # mb
-  #   timeout: 5 # seconds
-  #   events:
-  #     - http:
-  #         path: post/{postId}
-  #         method: DELETE
-  #   iamRoleStatements:
-  #     - Effect: "Allow"
-  #       Action:
-  #         - "dynamodb:DeleteItem"
-  #       Resource: !GetAtt VendorsMenusTable.Arn
+  deleteMenu:
+    handler: api.deleteMenu
+    name: delete-menu
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - http:
+          path: menu/{vendorId}
+          method: DELETE
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:DeleteItem"
+        Resource: !GetAtt VendorsMenusTable.Arn
   # getAllPosts:
   #   handler: api.getAllPosts
   #   name: get-all-posts
