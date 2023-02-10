@@ -140,7 +140,7 @@ const deleteMenu = async (event) => {
   return response;
 };
 
-const getAllPosts = async () => {
+const getAllMenus = async () => {
   const response = { statusCode: 200 };
 
   try {
@@ -149,7 +149,7 @@ const getAllPosts = async () => {
     );
 
     response.body = JSON.stringify({
-      message: "Successfully retrieved all posts.",
+      message: "Successfully retrieved all menus.",
       data: Items.map((item) => unmarshall(item)),
       Items,
     });
@@ -157,7 +157,7 @@ const getAllPosts = async () => {
     console.error(e);
     response.statusCode = 500;
     response.body = JSON.stringify({
-      message: "Failed to retrieve posts.",
+      message: "Failed to retrieve menus.",
       errorMsg: e.message,
       errorStack: e.stack,
     });
@@ -171,5 +171,5 @@ module.exports = {
   createMenu,
   updateMenu,
   deleteMenu,
-  getAllPosts,
+  getAllMenus,
 };
