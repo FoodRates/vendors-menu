@@ -37,33 +37,33 @@ const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
 //   return response;
 // };
 
-const createMenu = async (event) => {
-  const response = { statusCode: 200 };
+// const createMenu = async (event) => {
+//   const response = { statusCode: 200 };
 
-  try {
-    const body = JSON.parse(event.body);
-    const params = {
-      TableName: process.env.DYNAMODB_TABLE_NAME,
-      Item: marshall(body || {}),
-    };
-    const createResult = await db.send(new PutItemCommand(params));
+//   try {
+//     const body = JSON.parse(event.body);
+//     const params = {
+//       TableName: process.env.DYNAMODB_TABLE_NAME,
+//       Item: marshall(body || {}),
+//     };
+//     const createResult = await db.send(new PutItemCommand(params));
 
-    response.body = JSON.stringify({
-      message: "Successfully created post.",
-      createResult,
-    });
-  } catch (e) {
-    console.error(e);
-    response.statusCode = 500;
-    response.body = JSON.stringify({
-      message: "Failed to create post.",
-      errorMsg: e.message,
-      errorStack: e.stack,
-    });
-  }
+//     response.body = JSON.stringify({
+//       message: "Successfully created post.",
+//       createResult,
+//     });
+//   } catch (e) {
+//     console.error(e);
+//     response.statusCode = 500;
+//     response.body = JSON.stringify({
+//       message: "Failed to create post.",
+//       errorMsg: e.message,
+//       errorStack: e.stack,
+//     });
+//   }
 
-  return response;
-};
+//   return response;
+// };
 
 const updateMenu = async (event) => {
   const response = { statusCode: 200 };
@@ -168,7 +168,7 @@ const getAllMenus = async () => {
 
 module.exports = {
   // getMenu,
-  createMenu,
+  // createMenu,
   updateMenu,
   deleteMenu,
   getAllMenus,
