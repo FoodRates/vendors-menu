@@ -19,6 +19,7 @@ functions:
   getMenu:
     handler: src/lambdas/getMenu/get-menu.getMenu
     name: get-menu
+    description: Fetches a menu for one vendor using its vendorId
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -31,8 +32,9 @@ functions:
           - "dynamodb:GetItem"
         Resource: !GetAtt VendorsMenusTable.Arn
   createMenu:
-    handler: api.createMenu
+    handler: src/lambdas/createMenu/create-menu.createMenu
     name: create-new-menu
+    description: Creates a menu for one vendor using its vendorId
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -47,6 +49,7 @@ functions:
   updateMenu:
     handler: api.updateMenu
     name: update-menu
+    description: Updates a menu for one vendor using its vendorId
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -61,6 +64,7 @@ functions:
   deleteMenu:
     handler: api.deleteMenu
     name: delete-menu
+    description: Delete an entire menu for one vendor using its vendorId
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
