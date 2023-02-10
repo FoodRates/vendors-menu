@@ -71,14 +71,14 @@ functions:
         Action:
           - "dynamodb:DeleteItem"
         Resource: !GetAtt VendorsMenusTable.Arn
-  # getAllPosts:
-  #   handler: api.getAllPosts
-  #   name: get-all-posts
+  # getAllMenus:
+  #   handler: api.getAllMenus
+  #   name: get-all-menus
   #   memorySize: 128 # mb
   #   timeout: 5 # seconds
   #   events:
   #     - http:
-  #         path: posts
+  #         path: allmenus
   #         method: GET
   #   iamRoleStatements:
   #     - Effect: "Allow"
