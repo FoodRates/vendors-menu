@@ -32,7 +32,7 @@ functions:
         Resource: !GetAtt VendorsMenusTable.Arn
   createMenu:
     handler: api.createMenu
-    name: create-menu
+    name: create-new-menu
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
