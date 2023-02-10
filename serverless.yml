@@ -10,6 +10,7 @@ provider:
 
 custom:
   vendorsMenus: vendors-menus${self:provider.stage}
+  fileUploadBucketName: vendors-menu-images-${self:provider.stage}
 
 plugins:
   - serverless-iam-roles-per-function
@@ -85,6 +86,23 @@ functions:
   #       Action:
   #         - "dynamodb:Scan"
   #       Resource: !GetAtt VendorsMenusTable.Arn
+  s3FileUploader:
+    handler: src/lambdas/upload-image-to-S3.handler
+    name: s3-image-uploader
+    description: A lambda handler that uploads a file to an S3 bucket based on an API Gateway trigger.
+    # timeout: 60 # seconds
+    # memorySize: 128 # mb
+    events:
+      - http:
+          path: images
+          method: POST
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - "s3:*"
+        Resource: arn:aws:s3:::${self:custom.fileUploadBucketName}/*
+    environment:
+      FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
 
 resources:
   Resources:
@@ -101,3 +119,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+    FileBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.fileUploadBucketName}
+        AccessControl: PublicRead
