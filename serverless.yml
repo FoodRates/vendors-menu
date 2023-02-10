@@ -17,7 +17,7 @@ plugins:
 
 functions:
   getMenu:
-    handler: api.getMenu
+    handler: src/lambdas/getMenu/get-menu.getMenu
     name: get-menu
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -30,7 +30,7 @@ functions:
         Action:
           - "dynamodb:GetItem"
         Resource: !GetAtt VendorsMenusTable.Arn
-  createPost:
+  createMenu:
     handler: api.createMenu
     name: create-menu
     memorySize: 128 # mb
@@ -87,7 +87,7 @@ functions:
   #         - "dynamodb:Scan"
   #       Resource: !GetAtt VendorsMenusTable.Arn
   s3FileUploader:
-    handler: src/lambdas/upload-image-to-S3.handler
+    handler: src/lambdas/uploadImageToS3/upload-image-to-S3.handler
     name: s3-image-uploader
     description: V2 - A lambda handler that uploads a file to an S3 bucket based on an API Gateway trigger.
     # timeout: 60 # seconds
