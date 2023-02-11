@@ -3,7 +3,7 @@
     "City": "San Jose",
     "Location": "200 Park Avenue",
     "Name": "Beck's Steakhouse",
-    "PhoneNumber": "917-376-3763",
+    "PhoneNumber": "917-555-6666",
     "State": "CA",
     "Zipcode": "95035",
     "menu": {
@@ -18,28 +18,28 @@
             "rating": 4.8,
             "images": [
               {
-                "url": "www.googleimage.png",
+                "url": "www.s3-bucket-image-url.png",
                 "comments": [
                   {
-                    "userId": "123abc",
+                    "userId": "123-abc",
                     "content": "this is a great dish"
                   },
                   {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
+                    "userId": "123-xyz",
+                    "content": "I liked it a lot"
                   }
                 ]
               },
               {
-                "url": "www.googleimage2.png",
+                "url": "www.s3-bucket-image-url.png",
                 "comments": [
                   {
-                    "userId": "123xyz",
-                    "content": "this is a great dish"
+                    "userId": "qwer456",
+                    "content": "The portion was big."
                   },
                   {
-                    "userId": "123qwe",
-                    "content": "this is a great dish"
+                    "userId": "asdf-005",
+                    "content": "Mashed potatoes were delicious"
                   }
                 ]
               }
@@ -51,20 +51,20 @@
             "rating": 4.7,
             "images": [
               {
-                "url": "www.googleimage.png",
+                "url": "www.s3-bucket-image-url.png",
                 "comments": [
                   {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
+                    "userId": "1dg4g5j2",
+                    "content": "Cooked to perfection!"
                   },
                   {
                     "userId": "123abc",
-                    "content": "this is a great dish"
+                    "content": "I would order again."
                   }
                 ]
               },
               {
-                "url": "www.googleimage2.png",
+                "url": "www.s3-bucket-image-url.png",
                 "comments": [
                   {
                     "userId": "123xyz",
