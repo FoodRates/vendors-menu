@@ -47,7 +47,7 @@ functions:
           - "dynamodb:PutItem"
         Resource: !GetAtt VendorsMenusTable.Arn
   updateMenu:
-    handler: api.updateMenu
+    handler: src/lambdas/updateMenu/update-menu.updateMenu
     name: update-menu
     description: Updates a menu for one vendor using its vendorId
     memorySize: 128 # mb
