@@ -71,28 +71,34 @@ const updateMenu = async (event) => {
   try {
     const body = JSON.parse(event.body);
     const objKeys = Object.keys(body);
+
+    const keys = objKeys
+      .map((_, index) => `#key${index} = :value${index}`)
+      .join(", ");
+
+    const names = objKeys.reduce(
+      (acc, key, index) => ({
+        ...acc,
+        [`#key${index}`]: key,
+      }),
+      {}
+    );
+
+    const values = objKeys.reduce(
+      (acc, key, index) => ({
+        ...acc,
+        [`:value${index}`]: body[key],
+      }),
+      {}
+    );
+    // console.log("key: ", keys, "\nnames: ", names, "\nvalues:", values);
+
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
       Key: marshall({ vendorId: event.pathParameters.vendorId }),
-      UpdateExpression: `SET ${objKeys
-        .map((_, index) => `#key${index} = :value${index}`)
-        .join(", ")}`,
-      ExpressionAttributeNames: objKeys.reduce(
-        (acc, key, index) => ({
-          ...acc,
-          [`#key${index}`]: key,
-        }),
-        {}
-      ),
-      ExpressionAttributeValues: marshall(
-        objKeys.reduce(
-          (acc, key, index) => ({
-            ...acc,
-            [`:value${index}`]: body[key],
-          }),
-          {}
-        )
-      ),
+      UpdateExpression: `SET ${keys}`,
+      ExpressionAttributeNames: names,
+      ExpressionAttributeValues: marshall(values),
     };
     const updateResult = await db.send(new UpdateItemCommand(params));
 
