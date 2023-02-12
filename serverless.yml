@@ -100,7 +100,17 @@ functions:
       - http:
           path: images
           method: POST
-          cors: true # <-- CORS!
+          cors:
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - Content-Type
+              - X-Amz-Date
+              - Accept
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
     iamRoleStatements:
       - Effect: Allow
         Action:
