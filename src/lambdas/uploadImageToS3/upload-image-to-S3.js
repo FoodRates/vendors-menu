@@ -9,6 +9,9 @@ module.exports.handler = async (event) => {
   const response = {
     isBase64Encoded: false,
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify({
       message: "Successfully updated the file on source. Policy changed.",
     }),
