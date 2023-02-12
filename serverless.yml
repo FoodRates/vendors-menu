@@ -100,6 +100,7 @@ functions:
       - http:
           path: images
           method: POST
+          cors: true # <-- CORS!
     iamRoleStatements:
       - Effect: Allow
         Action:
