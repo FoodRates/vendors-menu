@@ -10,7 +10,7 @@ module.exports.handler = async (event) => {
     isBase64Encoded: false,
     statusCode: 200,
     headers: {
-      "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      "Access-Control-Allow-Origin": "http://localhost:3000", // Required for CORS support to work
       "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
       "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
