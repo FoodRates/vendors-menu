@@ -105,7 +105,6 @@ functions:
             headers: # <-- Specify allowed headers
               - Content-Type
               - X-Amz-Date
-              - Accept
               - Authorization
               - X-Api-Key
               - X-Amz-Security-Token
