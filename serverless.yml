@@ -9,7 +9,7 @@ provider:
     DYNAMODB_TABLE_NAME: ${self:custom.vendorsMenus}
 
 custom:
-  vendorsMenus: vendors-menus-${self:provider.stage}
+  vendorsMenus: vendors-menus-services-${self:provider.stage}
   fileUploadBucketName: vendors-menu-images-${self:provider.stage}
 
 plugins:
