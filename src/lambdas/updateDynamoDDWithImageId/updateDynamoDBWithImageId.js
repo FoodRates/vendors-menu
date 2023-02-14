@@ -1,10 +1,9 @@
-const updateDBWithNewImageId = async () => {
+const updateDBWithNewImageId = async (event) => {
   const response = { statusCode: 200 };
   try {
     response.body = JSON.stringify({
       message: "update DB with image url.",
-      data: Item ? unmarshall(Item) : {},
-      rawData: Item,
+      event: event,
     });
   } catch (error) {
     console.log("error occured while updating DB.");
