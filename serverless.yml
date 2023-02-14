@@ -18,6 +18,8 @@ plugins:
 functions:
   updateDynamoDBWithImageId:
     handler: src/lambdas/updateDynamoDDWithImageId/updateDynamoDBWithImageId.updateDBWithNewImageId
+    name: add-image-url-to-item-in-DB
+    description: After image is uploaded to S3, this lambda is triggered and updates the items image URL in DB
     events:
       - s3:
           bucket: ${self:custom.fileUploadBucketName}
