@@ -9,7 +9,7 @@ const updateDBWithNewImageId = async (event) => {
     console.log("error occured while updating DB.");
     throw error;
   }
-
+  console.log("response ==> ", response);
   return response;
 };
 
