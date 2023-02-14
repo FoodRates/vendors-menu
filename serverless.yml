@@ -25,7 +25,7 @@ functions:
           bucket: ${self:custom.fileUploadBucketName}
           event: s3:ObjectCreated:*
           existing: true
-          forceDeploy: true
+          # forceDeploy: true
   getMenu:
     handler: src/lambdas/getMenu/get-menu.getMenu
     name: get-menu
