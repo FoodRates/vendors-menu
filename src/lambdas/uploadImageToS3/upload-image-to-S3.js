@@ -37,6 +37,7 @@ module.exports.handler = async (event) => {
     response.body = JSON.stringify({
       message: "Successfully uploaded file to S3.",
       uploadResult,
+      RequestBodyOfVendor: parsedBody,
     });
   } catch (e) {
     console.error(e);
