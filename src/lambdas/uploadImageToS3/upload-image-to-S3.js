@@ -30,6 +30,7 @@ module.exports.handler = async (event) => {
       Key: `images/${new Date().toISOString()}.jpeg`,
       Body: decodedFile,
       ContentType: "image/jpeg",
+      Event: event,
     };
 
     const uploadResult = await s3.upload(params).promise();
