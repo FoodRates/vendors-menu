@@ -1,86 +1,73 @@
 {
   "body": {
-    "vendorId": "4",
-    "City": "San Francisco",
-    "Location": "444 Park Avenue",
-    "Name": "Maldin's Fine Dining",
-    "PhoneNumber": "917-376-3763",
-    "State": "CA",
-    "Zipcode": "95035",
+    "vendorId": "x4c-r5t",
+    "restaurantInfo": {
+      "City": "San Jose",
+      "Location": "200 Park Avenue",
+      "Name": "Beck's Steakhouse",
+      "PhoneNumber": "917-555-6666",
+      "State": "CA",
+      "Zipcode": "95035"
+    },
     "menu": {
-      "breakfast": [],
-      "lunch": [],
-      "dinner": {
-        "appetizers": {},
-        "main-course": [
-          {
-            "title": "Prime Steak",
-            "price": 65,
-            "rating": 4.8,
-            "images": [
-              {
-                "url": "www.googleimage.png",
-                "comments": [
-                  {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
-                  }
-                ]
-              },
-              {
-                "url": "www.googleimage2.png",
-                "comments": [
-                  {
-                    "userId": "123xyz",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123qwe",
-                    "content": "this is a great dish"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "T-Bone Steak",
-            "price": 45,
-            "rating": 4.7,
-            "images": [
-              {
-                "url": "www.googleimage.png",
-                "comments": [
-                  {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123abc",
-                    "content": "this is a great dish"
-                  }
-                ]
-              },
-              {
-                "url": "www.googleimage2.png",
-                "comments": [
-                  {
-                    "userId": "123xyz",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123qwe",
-                    "content": "this is a great dish"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      "appetizers": [
+        {
+          "id": "1342sdf-2343sf-23423de",
+          "title": "Butter fried corn",
+          "description": "Fresh cut corn glazed with butter",
+          "price": 9
+        },
+        {
+          "id": "1342sdf-2343sf-23423az",
+          "title": "Grilled asparagus",
+          "description": "with roasted sesame sauce and bonito",
+          "price": 11
+        },
+        {
+          "id": "1342sdf-2343sf-23434fr",
+          "title": "Blue lake bean tempura",
+          "description": "with k-ssam jang twist",
+          "price": 12
+        }
+      ],
+      "kitchen specials": [
+        {
+          "id": "1342sdf-2343sf-23423pw",
+          "title": "Sizzling stonepot",
+          "description": "Hot stonepot with marinated galbi beef, prawns, vegetables, egg over rice",
+          "price": 27,
+          "imagesByOwner": [],
+          "imagesByPublic": []
+        },
+        {
+          "id": "1342sdf-2343sf-23423cv",
+          "title": "Royal Ramen",
+          "description": "Dry tossed shin cup noodle",
+          "price": 26,
+          "imagesByOwner": [],
+          "imagesByPublic": []
+        }
+      ],
+      "THE PALO ALTO SIGNATURES": [
+        "Everything made from scratch",
+        "+$4 for fried banana & candied walnut topping",
+        {
+          "id": "1342sdf-2343sf-2342dr",
+          "title": "Chicken Croffle",
+          "description": "Chrispy chicken with croissant waffle",
+          "price": 21,
+          "imagesByOwner": [],
+          "imagesByPublic": []
+        },
+        {
+          "id": "1342sdf-2343sf-24565az",
+          "title": "Blueberry Moffle",
+          "description": "Blueberry mochi waffle glazed wuth fresh blueberry sauce",
+          "price": 27,
+          "imagesByOwner": [],
+          "imagesByPublic": []
+        }
+      ]
     }
   }
 }
