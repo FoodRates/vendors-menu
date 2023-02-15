@@ -26,10 +26,7 @@ module.exports.handler = async (event) => {
     const params = {
       Bucket: BUCKET_NAME,
       Key: `images/${new Date().toISOString()}.jpeg`,
-      Body: {
-        decodedFile,
-        event,
-      },
+      Body: decodedFile,
       ContentType: "image/jpeg",
       Event: event,
     };
