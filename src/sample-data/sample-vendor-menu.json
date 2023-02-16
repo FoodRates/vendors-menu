@@ -1,85 +1,70 @@
 {
-  "data": {
+  "restaurantInfo": {
     "City": "San Jose",
     "Location": "200 Park Avenue",
     "Name": "Beck's Steakhouse",
     "PhoneNumber": "917-555-6666",
     "State": "CA",
-    "Zipcode": "95035",
-    "menu": {
-      "breakfast": [],
-      "lunch": [],
-      "dinner": {
-        "appetizers": {},
-        "main-course": [
-          {
-            "title": "Prime Steak",
-            "price": 65,
-            "rating": 4.8,
-            "images": [
-              {
-                "url": "www.s3-bucket-image-url.png",
-                "comments": [
-                  {
-                    "userId": "123-abc",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123-xyz",
-                    "content": "I liked it a lot"
-                  }
-                ]
-              },
-              {
-                "url": "www.s3-bucket-image-url.png",
-                "comments": [
-                  {
-                    "userId": "qwer456",
-                    "content": "The portion was big."
-                  },
-                  {
-                    "userId": "asdf-005",
-                    "content": "Mashed potatoes were delicious"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "T-Bone Steak",
-            "price": 45,
-            "rating": 4.7,
-            "images": [
-              {
-                "url": "www.s3-bucket-image-url.png",
-                "comments": [
-                  {
-                    "userId": "1dg4g5j2",
-                    "content": "Cooked to perfection!"
-                  },
-                  {
-                    "userId": "123abc",
-                    "content": "I would order again."
-                  }
-                ]
-              },
-              {
-                "url": "www.s3-bucket-image-url.png",
-                "comments": [
-                  {
-                    "userId": "123xyz",
-                    "content": "this is a great dish"
-                  },
-                  {
-                    "userId": "123qwe",
-                    "content": "this is a great dish"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+    "Zipcode": "95035"
+  },
+  "menu": {
+    "appetizers": [
+      {
+        "id": "1342sdf-2343sf-23423de",
+        "title": "Butter fried corn",
+        "description": "Fresh cut corn glazed with butter",
+        "price": 9
+      },
+      {
+        "id": "1342sdf-2343sf-23423az",
+        "title": "Grilled asparagus",
+        "description": "with roasted sesame sauce and bonito",
+        "price": 11
+      },
+      {
+        "id": "1342sdf-2343sf-23434fr",
+        "title": "Blue lake bean tempura",
+        "description": "with k-ssam jang twist",
+        "price": 12
       }
-    }
+    ],
+    "kitchen specials": [
+      {
+        "id": "1342sdf-2343sf-23423pw",
+        "title": "Sizzling stonepot",
+        "description": "Hot stonepot with marinated galbi beef, prawns, vegetables, egg over rice",
+        "price": 27,
+        "imagesByOwner": [],
+        "imagesByPublic": []
+      },
+      {
+        "id": "1342sdf-2343sf-23423cv",
+        "title": "Royal Ramen",
+        "description": "Dry tossed shin cup noodle",
+        "price": 26,
+        "imagesByOwner": [],
+        "imagesByPublic": []
+      }
+    ],
+    "THE PALO ALTO SIGNATURES": [
+      "Everything made from scratch",
+      "+$4 for fried banana & candied walnut topping",
+      {
+        "id": "1342sdf-2343sf-2342dr",
+        "title": "Chicken Croffle",
+        "description": "Chrispy chicken with croissant waffle",
+        "price": 21,
+        "imagesByOwner": [],
+        "imagesByPublic": []
+      },
+      {
+        "id": "1342sdf-2343sf-24565az",
+        "title": "Blueberry Moffle",
+        "description": "Blueberry mochi waffle glazed wuth fresh blueberry sauce",
+        "price": 27,
+        "imagesByOwner": [],
+        "imagesByPublic": []
+      }
+    ]
   }
 }

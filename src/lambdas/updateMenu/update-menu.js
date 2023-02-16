@@ -2,11 +2,36 @@ const db = require("../../../db");
 const { UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
+const updateItem = (item, subject) => {
+  const itemNameAndValueUpdated = {
+    [subject.targetField]: subject.value,
+  };
+  const result = { ...item, ...itemNameAndValueUpdated };
+
+  return result;
+};
+
+const updateRequestBody = (body, subject) => {
+  const selectedTargetInBody = body.menu[subject.section];
+  const sectionWithUpdatedValues = selectedTargetInBody.map((item) =>
+    item.id === subject.id ? updateItem(item, subject) : item
+  );
+
+  return sectionWithUpdatedValues;
+};
+
 const updateMenu = async (event) => {
   const response = { statusCode: 200 };
 
   try {
     const body = JSON.parse(event.body);
+    // const body = event.body; // for local invovation
+    const subject = event.target;
+    const sectionToChange = subject.section;
+
+    const updatedBody = await updateRequestBody(body, subject);
+    body.menu[sectionToChange] = updatedBody;
+
     const objKeys = Object.keys(body);
 
     const keys = objKeys
@@ -28,7 +53,6 @@ const updateMenu = async (event) => {
       }),
       {}
     );
-    // console.log("key: ", keys, "\nnames: ", names, "\nvalues:", values);
 
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
