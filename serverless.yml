@@ -86,20 +86,20 @@ functions:
         Action:
           - "dynamodb:DeleteItem"
         Resource: !GetAtt VendorsMenusTable.Arn
-  # getAllMenus:
-  #   handler: api.getAllMenus
-  #   name: get-all-menus
-  #   memorySize: 128 # mb
-  #   timeout: 5 # seconds
-  #   events:
-  #     - http:
-  #         path: allmenus
-  #         method: GET
-  #   iamRoleStatements:
-  #     - Effect: "Allow"
-  #       Action:
-  #         - "dynamodb:Scan"
-  #       Resource: !GetAtt VendorsMenusTable.Arn
+  getAllMenus:
+    handler: src/lambdas/getAllMenus/get-all-menus.getAllMenus
+    name: get-all-menus
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - http:
+          path: allmenus
+          method: GET
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:Scan"
+        Resource: !GetAtt VendorsMenusTable.Arn
   s3FileUploader:
     handler: src/lambdas/uploadImageToS3/upload-image-to-S3.handler
     name: s3-image-uploader
