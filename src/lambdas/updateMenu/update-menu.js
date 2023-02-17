@@ -3,10 +3,7 @@ const { UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
 const updateItem = (item, subject) => {
-  const itemNameAndValueUpdated = {
-    [subject.targetField]: subject.value,
-  };
-  const result = { ...item, ...itemNameAndValueUpdated };
+  const result = { ...item, ...subject.replacement };
 
   return result;
 };

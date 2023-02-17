@@ -75,7 +75,10 @@
   "target": {
     "id": "1342sdf-2343sf-23423pw",
     "section": "kitchen specials",
-    "targetField": "price",
-    "value": 35
+    "replacement": {
+      "description": "This is a new seasonal dish",
+      "price": 55,
+      "title": "Sizzling stonepot - SEASONAL"
+    }
   }
 }
