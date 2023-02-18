@@ -1,8 +1,10 @@
 const db = require("../../../db");
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 const { GetItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
 
-const getMenu = async (event) => {
+const handler = async (event) => {
   const response = { statusCode: 200 };
 
   try {
@@ -35,6 +37,5 @@ const getMenu = async (event) => {
   return response;
 };
 
-module.exports = {
-  getMenu,
-};
+const getMenu = middy(handler).use(cors());
+module.exports = { getMenu };

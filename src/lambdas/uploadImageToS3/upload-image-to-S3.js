@@ -1,16 +1,14 @@
 const AWS = require("aws-sdk");
 const s3 = new AWS.S3();
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 
 const BUCKET_NAME = process.env.FILE_UPLOAD_BUCKET_NAME;
 
-module.exports.handler = async (event) => {
+const handler = async (event) => {
   const response = {
     isBase64Encoded: false,
     statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Credentials": true,
-    },
     body: JSON.stringify({
       message: "Successfully updated the file on source. Policy changed.",
     }),
@@ -18,6 +16,7 @@ module.exports.handler = async (event) => {
 
   try {
     const parsedBody = JSON.parse(event.body);
+    // const parsedBody = event.body; // local invocation
     const base64File = parsedBody.file;
     const decodedFile = Buffer.from(
       base64File.replace(/^data:image\/\w+;base64,/, ""),
@@ -49,3 +48,6 @@ module.exports.handler = async (event) => {
 
   return response;
 };
+
+const uploadImageToS3 = middy(handler).use(cors());
+module.exports = { uploadImageToS3 };

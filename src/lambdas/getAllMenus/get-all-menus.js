@@ -1,8 +1,10 @@
 const db = require("../../../db");
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 const { ScanCommand } = require("@aws-sdk/client-dynamodb");
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 
-const getAllMenus = async () => {
+const handler = async () => {
   const response = { statusCode: 200 };
 
   try {
@@ -13,10 +15,6 @@ const getAllMenus = async () => {
     response.body = JSON.stringify({
       message: "Successfully retrieved all menus.",
       data: Items.map((item) => unmarshall(item)),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      },
       Items,
     });
   } catch (e) {
@@ -32,4 +30,5 @@ const getAllMenus = async () => {
   return response;
 };
 
+const getAllMenus = middy(handler).use(cors());
 module.exports = { getAllMenus };
