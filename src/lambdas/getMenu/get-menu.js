@@ -14,6 +14,10 @@ const getMenu = async (event) => {
 
     console.log({ Item });
     response.body = JSON.stringify({
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
       message: "Successfully retrieved menu.",
       data: Item ? unmarshall(Item) : {},
       rawData: Item,

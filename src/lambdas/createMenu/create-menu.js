@@ -16,6 +16,10 @@ const createMenu = async (event) => {
     const createResult = await db.send(new PutItemCommand(params));
 
     response.body = JSON.stringify({
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
       message: "Successfully created post.",
       createResult,
     });

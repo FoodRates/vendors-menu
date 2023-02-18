@@ -62,6 +62,10 @@ const updateMenu = async (event) => {
 
     response.body = JSON.stringify({
       message: "Successfully updated post.",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
       updateResult,
     });
   } catch (e) {
