@@ -13,6 +13,10 @@ const deleteMenu = async (event) => {
     const deleteResult = await db.send(new DeleteItemCommand(params));
 
     response.body = JSON.stringify({
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
       message: "Successfully deleted vendor.",
       deleteResult,
     });
