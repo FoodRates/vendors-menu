@@ -13,6 +13,10 @@ const getAllMenus = async () => {
     response.body = JSON.stringify({
       message: "Successfully retrieved all menus.",
       data: Items.map((item) => unmarshall(item)),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
       Items,
     });
   } catch (e) {
