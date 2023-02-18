@@ -1,6 +1,6 @@
-const db = require("./db");
-const { DeleteItemCommand, ScanCommand } = require("@aws-sdk/client-dynamodb");
-const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+const db = require("../../../db");
+const { DeleteItemCommand } = require("@aws-sdk/client-dynamodb");
+const { marshall } = require("@aws-sdk/util-dynamodb");
 
 const deleteMenu = async (event) => {
   const response = { statusCode: 200 };
@@ -29,6 +29,4 @@ const deleteMenu = async (event) => {
   return response;
 };
 
-module.exports = {
-  deleteMenu,
-};
+module.exports = { deleteMenu };
