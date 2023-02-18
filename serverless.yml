@@ -95,6 +95,7 @@ functions:
       - http:
           path: allmenus
           method: GET
+          cors: true
     iamRoleStatements:
       - Effect: "Allow"
         Action:
