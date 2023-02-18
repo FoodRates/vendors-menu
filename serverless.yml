@@ -72,7 +72,7 @@ functions:
           - "dynamodb:UpdateItem"
         Resource: !GetAtt VendorsMenusTable.Arn
   deleteMenu:
-    handler: api.deleteMenu
+    handler: src/lambdas/deleteMenu/delete-menu.deleteMenu
     name: delete-menu
     description: Delete an entire menu for one vendor using its vendorId
     memorySize: 128 # mb
