@@ -1,4 +1,6 @@
 const db = require("../../../db");
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 const { UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
@@ -17,7 +19,7 @@ const updateRequestBody = (body, subject) => {
   return sectionWithUpdatedValues;
 };
 
-const updateMenu = async (event) => {
+const handler = async (event) => {
   const response = { statusCode: 200 };
 
   try {
@@ -81,6 +83,5 @@ const updateMenu = async (event) => {
   return response;
 };
 
-module.exports = {
-  updateMenu,
-};
+const updateMenu = middy(handler).use(cors());
+module.exports = { updateMenu };

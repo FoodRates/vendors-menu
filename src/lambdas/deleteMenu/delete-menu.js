@@ -1,8 +1,10 @@
 const db = require("../../../db");
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 const { DeleteItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
-const deleteMenu = async (event) => {
+const handler = async (event) => {
   const response = { statusCode: 200 };
 
   try {
@@ -33,4 +35,5 @@ const deleteMenu = async (event) => {
   return response;
 };
 
+const deleteMenu = middy(handler).use(cors());
 module.exports = { deleteMenu };

@@ -1,8 +1,10 @@
 const db = require("../../../db");
+const middy = require("middy");
+const { cors } = require("middy/middlewares");
 const { PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
-const createMenu = async (event) => {
+const handler = async (event) => {
   const response = { statusCode: 200 };
 
   try {
@@ -16,10 +18,6 @@ const createMenu = async (event) => {
     const createResult = await db.send(new PutItemCommand(params));
 
     response.body = JSON.stringify({
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      },
       message: "Successfully created post.",
       createResult,
     });
@@ -36,6 +34,5 @@ const createMenu = async (event) => {
   return response;
 };
 
-module.exports = {
-  createMenu,
-};
+const createMenu = middy(handler).use(cors());
+module.exports = { createMenu };

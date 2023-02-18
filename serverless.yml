@@ -105,14 +105,13 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: false
-    forceDeploy: true
     iamRoleStatements:
       - Effect: "Allow"
         Action:
           - "dynamodb:Scan"
         Resource: !GetAtt VendorsMenusTable.Arn
   s3FileUploader:
-    handler: src/lambdas/uploadImageToS3/upload-image-to-S3.handler
+    handler: src/lambdas/uploadImageToS3/upload-image-to-S3.uploadImageToS3
     name: s3-image-uploader
     description: V2 - A lambda handler that uploads a file to an S3 bucket based on an API Gateway trigger.
     # timeout: 60 # seconds
