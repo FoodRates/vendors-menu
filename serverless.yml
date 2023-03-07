@@ -34,7 +34,7 @@ functions:
     timeout: 5 # seconds
     events:
       - http:
-          path: menu/{vendorId}
+          path: api/vendors/{vendorId}/details
           method: GET
     iamRoleStatements:
       - Effect: "Allow"
