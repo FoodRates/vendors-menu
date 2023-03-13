@@ -1,84 +1,8 @@
 {
   "pathParameters": {
-    "vendorId": "x4c-r5t"
+    "vendorId": "werw234-wrt234-gtyy4445"
   },
   "body": {
-    "menu": {
-      "appetizers": [
-        {
-          "description": "Fresh cut corn glazed with butter",
-          "id": "1342sdf-2343sf-23423de",
-          "price": 9,
-          "title": "Butter fried corn"
-        },
-        {
-          "description": "with roasted sesame sauce and bonito",
-          "id": "1342sdf-2343sf-23423az",
-          "price": 11,
-          "title": "Grilled asparagus"
-        },
-        {
-          "description": "with k-ssam jang twist",
-          "id": "1342sdf-2343sf-23434fr",
-          "price": 12,
-          "title": "Blue lake bean tempura"
-        }
-      ],
-      "kitchen specials": [
-        {
-          "description": "Hot stonepot with marinated galbi beef, prawns, vegetables, egg over rice",
-          "id": "1342sdf-2343sf-23423pw",
-          "imagesByOwner": [],
-          "imagesByPublic": [],
-          "price": 27,
-          "title": "Sizzling stonepot"
-        },
-        {
-          "description": "Dry tossed shin cup noodle",
-          "id": "1342sdf-2343sf-23423cv",
-          "imagesByOwner": [],
-          "imagesByPublic": [],
-          "price": 26,
-          "title": "Royal Ramen"
-        }
-      ],
-      "THE PALO ALTO SIGNATURES": [
-        "Everything made from scratch",
-        "+$4 for fried banana & candied walnut topping",
-        {
-          "description": "Chrispy chicken with croissant waffle",
-          "id": "1342sdf-2343sf-2342dr",
-          "imagesByOwner": [],
-          "imagesByPublic": [],
-          "price": 21,
-          "title": "Chicken Croffle"
-        },
-        {
-          "description": "Blueberry mochi waffle glazed wuth fresh blueberry sauce",
-          "id": "1342sdf-2343sf-24565az",
-          "imagesByOwner": [],
-          "imagesByPublic": [],
-          "price": 27,
-          "title": "Blueberry Moffle"
-        }
-      ]
-    },
-    "restaurantInfo": {
-      "City": "San Jose",
-      "Location": "200 Park Avenue",
-      "Name": "Beck's Prime Steakhouse",
-      "PhoneNumber": "917-555-6666",
-      "State": "CA",
-      "Zipcode": "95035"
-    }
-  },
-  "target": {
-    "id": "1342sdf-2343sf-23423pw",
-    "section": "kitchen specials",
-    "replacement": {
-      "description": "This is a new seasonal dish :)",
-      "price": 55,
-      "title": "Sizzling stonepot - SEASONAL"
-    }
+    "value": 29.99
   }
 }

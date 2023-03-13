@@ -1,66 +1,58 @@
-const db = require("../../../db");
-const middy = require("middy");
+const { DynamoDB } = require("aws-sdk");
 const { cors } = require("middy/middlewares");
-const { UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
-const { marshall } = require("@aws-sdk/util-dynamodb");
+const middy = require("middy");
 
-const updateItem = (item, subject) => {
-  const result = { ...item, ...subject.replacement };
+const processPutItemRequest = (params) => {
+  const dynamoDB = new DynamoDB.DocumentClient({
+    region: "us-west-1",
+    profile: "default",
+  });
+  const { value } = params.value;
 
-  return result;
-};
-
-const updateRequestBody = (body, subject) => {
-  const selectedTargetInBody = body.menu[subject.section];
-  const sectionWithUpdatedValues = selectedTargetInBody.map((item) =>
-    item.id === subject.id ? updateItem(item, subject) : item
-  );
-
-  return sectionWithUpdatedValues;
+  dynamoDB
+    .update({
+      TableName: process.env.DYNAMODB_TABLE_NAME,
+      Key: {
+        vendorId: params.vendorId,
+      },
+      // build the path below as such and construct "ExpressionAttributeNames" as shown:
+      // it is crucial to put # in front of object key names because they could be reserved words.
+      UpdateExpression: "SET #menu[0].#items[1].#price = :value",
+      // For consistency, always use ExpressionAttributeNames for all attributes
+      ExpressionAttributeNames: {
+        "#menu": "menu",
+        "#items": "items",
+        "#price": "price",
+      },
+      ExpressionAttributeValues: {
+        ":value": value,
+      },
+      ReturnConsumedCapacity: "NONE",
+      ReturnValues: "ALL_NEW",
+    })
+    .promise()
+    .then((data) => {
+      console.log("Output: ", JSON.stringify(data.Attributes));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 const handler = async (event) => {
   const response = { statusCode: 200 };
-
   try {
+    const eventObject = JSON.parse(event);
     const body = JSON.parse(event.body);
+    // const eventObject = event;
     // const body = event.body; // for local invovation
-    const subject = event.target;
-    const sectionToChange = subject.section;
-
-    const updatedBody = await updateRequestBody(body, subject);
-    body.menu[sectionToChange] = updatedBody;
-
-    const objKeys = Object.keys(body);
-
-    const keys = objKeys
-      .map((_, index) => `#key${index} = :value${index}`)
-      .join(", ");
-
-    const names = objKeys.reduce(
-      (acc, key, index) => ({
-        ...acc,
-        [`#key${index}`]: key,
-      }),
-      {}
-    );
-
-    const values = objKeys.reduce(
-      (acc, key, index) => ({
-        ...acc,
-        [`:value${index}`]: body[key],
-      }),
-      {}
-    );
 
     const params = {
-      TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: marshall({ vendorId: event.pathParameters.vendorId }),
-      UpdateExpression: `SET ${keys}`,
-      ExpressionAttributeNames: names,
-      ExpressionAttributeValues: marshall(values),
+      vendorId: eventObject.pathParameters.vendorId,
+      value: body,
     };
-    const updateResult = await db.send(new UpdateItemCommand(params));
+
+    const updateResult = processPutItemRequest(params);
 
     response.body = JSON.stringify({
       message: "Successfully updated post.",
