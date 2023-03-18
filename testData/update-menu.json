@@ -50,13 +50,13 @@
                 "Dinner"
               ],
               "customPrice": [],
-              "description": "Item description",
+              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
               "hasCustomPrice": false,
               "id": "2",
               "imageId": "",
               "isHide": false,
               "name": "Grilled Asparagus",
-              "price": 38.59,
+              "price": 30,
               "ratings": 4,
               "tags": [
                 "Best Seller"
@@ -90,19 +90,19 @@
               ],
               "customPrice": [
                 {
-                  "for": "Break Fast",
-                  "value": 30
+                  "for": "Breakfast",
+                  "value": 99
                 },
                 {
                   "for": "Lunch",
-                  "value": 25
+                  "value": 99
                 },
                 {
                   "for": "Dinner",
-                  "value": 20
+                  "value": 99
                 }
               ],
-              "description": "Some text to test only.",
+              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
               "hasCustomPrice": true,
               "id": "1",
               "imageId": "",
@@ -111,29 +111,27 @@
               "price": 0,
               "ratings": 4,
               "tags": [
-                "Best Seller",
-                "Lowest Price"
+                "Best Seller"
               ],
               "type": "veg"
             },
             {
               "availableSections": [
-                "Breakfast",
+                "Break Fast",
                 "Lunch",
                 "Dinner"
               ],
               "customPrice": [],
-              "description": "Whatever this is...",
+              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
               "hasCustomPrice": false,
               "id": "2",
               "imageId": "",
               "isHide": false,
               "name": "Grilled Asparagus",
-              "price": 38.59,
+              "price": 30,
               "ratings": 4,
               "tags": [
-                "Best Seller",
-                "Seasonal item, won't last!"
+                "Best Seller"
               ],
               "type": "non-veg"
             }
