@@ -49,7 +49,7 @@ functions:
     timeout: 5 # seconds
     events:
       - http:
-          path: post
+          path: /api/category/{vendorId}/create
           method: POST
     iamRoleStatements:
       - Effect: "Allow"
@@ -64,7 +64,7 @@ functions:
     timeout: 5 # seconds
     events:
       - http:
-          path: menu/{vendorId}
+          path: /api/category/{vendorId}/update
           method: PUT
     iamRoleStatements:
       - Effect: "Allow"
@@ -79,7 +79,7 @@ functions:
     timeout: 5 # seconds
     events:
       - http:
-          path: menu/{vendorId}
+          path: /api/category/{vendorId}/delete
           method: DELETE
     iamRoleStatements:
       - Effect: "Allow"
@@ -93,7 +93,7 @@ functions:
     timeout: 5 # seconds
     events:
       - http:
-          path: allmenus
+          path: /api/allMenus/{zipcode}
           method: GET
           cors:
             origin: '*' # <-- Specify allowed origin
@@ -118,7 +118,7 @@ functions:
     # memorySize: 128 # mb
     events:
       - http:
-          path: images
+          path: /api/uploadImage
           method: POST
           cors:
             origin: '*' # <-- Specify allowed origin
