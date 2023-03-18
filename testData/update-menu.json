@@ -12,25 +12,25 @@
           "items": [
             {
               "availableSections": [
-                "Break Fast",
+                "Breakfast",
                 "Lunch",
                 "Dinner"
               ],
               "customPrice": [
                 {
-                  "for": "Break Fast",
-                  "value": 30
+                  "for": "Breakfast",
+                  "value": 99.99
                 },
                 {
                   "for": "Lunch",
-                  "value": 25
+                  "value": 99.99
                 },
                 {
                   "for": "Dinner",
-                  "value": 20
+                  "value": 99.99
                 }
               ],
-              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
+              "description": "Lorem Ipsum - YES!!!?!?!?!?",
               "hasCustomPrice": true,
               "id": "1",
               "imageId": "",
@@ -50,7 +50,7 @@
                 "Dinner"
               ],
               "customPrice": [],
-              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
+              "description": "Absolutely stunning dish, do you even say that?!?!?! - YES!!",
               "hasCustomPrice": false,
               "id": "2",
               "imageId": "",
@@ -91,18 +91,18 @@
               "customPrice": [
                 {
                   "for": "Breakfast",
-                  "value": 99
+                  "value": 99.99
                 },
                 {
                   "for": "Lunch",
-                  "value": 99
+                  "value": 99.99
                 },
                 {
                   "for": "Dinner",
-                  "value": 99
+                  "value": 99.9901
                 }
               ],
-              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
+              "description": "Very nice dish, enjoyed it much!",
               "hasCustomPrice": true,
               "id": "1",
               "imageId": "",
@@ -122,7 +122,7 @@
                 "Dinner"
               ],
               "customPrice": [],
-              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
+              "description": "Absolutely stunning dish, do you even say that?!?!?! - YES!! LOL",
               "hasCustomPrice": false,
               "id": "2",
               "imageId": "",

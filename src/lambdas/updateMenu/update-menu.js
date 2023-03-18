@@ -1,7 +1,7 @@
 const { DynamoDB } = require("aws-sdk");
 const { cors } = require("middy/middlewares");
 const middy = require("middy");
-const due = require("dynamo-update-expression");
+const due = require("../../utils/updateExpressionBuilder");
 
 const formUpdateExpression = (original, modified) => {
   const updateExpression = due.getUpdateExpression({ original, modified });
