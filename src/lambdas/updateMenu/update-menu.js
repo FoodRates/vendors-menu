@@ -58,11 +58,11 @@ const processPutItemRequest = (params) => {
 const handler = async (event) => {
   const response = { statusCode: 200 };
   try {
-    const eventObject = JSON.parse(event);
-    const body = JSON.parse(event.body);
+    // const eventObject = JSON.parse(event);
+    // const body = JSON.parse(event.body);
 
-    // const eventObject = event; // for local invovation
-    // const body = event.body; // for local invovation
+    const eventObject = event; // for local invovation
+    const body = event.body; // for local invovation
 
     const params = {
       vendorId: eventObject.pathParameters.vendorId,
