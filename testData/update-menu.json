@@ -3,6 +3,151 @@
     "vendorId": "werw234-wrt234-gtyy4445"
   },
   "body": {
-    "value": 29.99
+    "original": {
+      "vendorId": "werw234-wrt234-gtyy4445",
+      "menu": [
+        {
+          "categoryName": "Appetizers",
+          "id": "1",
+          "items": [
+            {
+              "availableSections": [
+                "Break Fast",
+                "Lunch",
+                "Dinner"
+              ],
+              "customPrice": [
+                {
+                  "for": "Break Fast",
+                  "value": 30
+                },
+                {
+                  "for": "Lunch",
+                  "value": 25
+                },
+                {
+                  "for": "Dinner",
+                  "value": 20
+                }
+              ],
+              "description": " Veggie burger with seeded bun and tikki with full of veggies radish, onion, cabbage etc with tandoori sauces and burger sauce.",
+              "hasCustomPrice": true,
+              "id": "1",
+              "imageId": "",
+              "isHide": false,
+              "name": "Butter fried corn",
+              "price": 0,
+              "ratings": 4,
+              "tags": [
+                "Best Seller"
+              ],
+              "type": "veg"
+            },
+            {
+              "availableSections": [
+                "Break Fast",
+                "Lunch",
+                "Dinner"
+              ],
+              "customPrice": [],
+              "description": "Item description",
+              "hasCustomPrice": false,
+              "id": "2",
+              "imageId": "",
+              "isHide": false,
+              "name": "Grilled Asparagus",
+              "price": 38.59,
+              "ratings": 4,
+              "tags": [
+                "Best Seller"
+              ],
+              "type": "non-veg"
+            }
+          ]
+        }
+      ],
+      "restaurantInfo": {
+        "City": "San Jose",
+        "Location": "200 Park Avenue",
+        "Name": "Beck's NoodleHouse",
+        "PhoneNumber": "917-555-6666",
+        "State": "CA",
+        "Zipcode": "95035"
+      }
+    },
+    "modified": {
+      "vendorId": "werw234-wrt234-gtyy4445",
+      "menu": [
+        {
+          "categoryName": "Appetizers",
+          "id": "1",
+          "items": [
+            {
+              "availableSections": [
+                "Breakfast",
+                "Lunch",
+                "Dinner"
+              ],
+              "customPrice": [
+                {
+                  "for": "Break Fast",
+                  "value": 30
+                },
+                {
+                  "for": "Lunch",
+                  "value": 25
+                },
+                {
+                  "for": "Dinner",
+                  "value": 20
+                }
+              ],
+              "description": "Some text to test only.",
+              "hasCustomPrice": true,
+              "id": "1",
+              "imageId": "",
+              "isHide": false,
+              "name": "Butter fried corn",
+              "price": 0,
+              "ratings": 4,
+              "tags": [
+                "Best Seller",
+                "Lowest Price"
+              ],
+              "type": "veg"
+            },
+            {
+              "availableSections": [
+                "Breakfast",
+                "Lunch",
+                "Dinner"
+              ],
+              "customPrice": [],
+              "description": "Whatever this is...",
+              "hasCustomPrice": false,
+              "id": "2",
+              "imageId": "",
+              "isHide": false,
+              "name": "Grilled Asparagus",
+              "price": 38.59,
+              "ratings": 4,
+              "tags": [
+                "Best Seller",
+                "Seasonal item, won't last!"
+              ],
+              "type": "non-veg"
+            }
+          ]
+        }
+      ],
+      "restaurantInfo": {
+        "City": "San Jose",
+        "Location": "200 Park Avenue",
+        "Name": "Beck's NoodleHouse",
+        "PhoneNumber": "917-555-6666",
+        "State": "CA",
+        "Zipcode": "95035"
+      }
+    }
   }
 }

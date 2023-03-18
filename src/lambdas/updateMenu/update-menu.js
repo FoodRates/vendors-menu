@@ -1,13 +1,38 @@
 const { DynamoDB } = require("aws-sdk");
 const { cors } = require("middy/middlewares");
 const middy = require("middy");
+const due = require("dynamo-update-expression");
+
+const formUpdateExpression = (original, modified) => {
+  const updateExpression = due.getUpdateExpression({ original, modified });
+  const {
+    UpdateExpression,
+    ExpressionAttributeNames,
+    ExpressionAttributeValues,
+  } = updateExpression;
+
+  return {
+    UpdateExpression,
+    ExpressionAttributeNames,
+    ExpressionAttributeValues,
+  };
+};
 
 const processPutItemRequest = (params) => {
   const dynamoDB = new DynamoDB.DocumentClient({
     region: "us-west-1",
     profile: "default",
   });
-  const { value } = params.value;
+
+  const { value } = params;
+  const { original, modified } = value;
+
+  const updatedExpressionParams = formUpdateExpression(original, modified);
+  const {
+    UpdateExpression,
+    ExpressionAttributeNames,
+    ExpressionAttributeValues,
+  } = updatedExpressionParams;
 
   dynamoDB
     .update({
@@ -15,18 +40,9 @@ const processPutItemRequest = (params) => {
       Key: {
         vendorId: params.vendorId,
       },
-      // build the path below as such and construct "ExpressionAttributeNames" as shown:
-      // it is crucial to put # in front of object key names because they could be reserved words.
-      UpdateExpression: "SET #menu[0].#items[1].#price = :value",
-      // For consistency, always use ExpressionAttributeNames for all attributes
-      ExpressionAttributeNames: {
-        "#menu": "menu",
-        "#items": "items",
-        "#price": "price",
-      },
-      ExpressionAttributeValues: {
-        ":value": value,
-      },
+      UpdateExpression: UpdateExpression,
+      ExpressionAttributeNames: ExpressionAttributeNames,
+      ExpressionAttributeValues: ExpressionAttributeValues,
       ReturnConsumedCapacity: "NONE",
       ReturnValues: "ALL_NEW",
     })
@@ -44,8 +60,9 @@ const handler = async (event) => {
   try {
     const eventObject = JSON.parse(event);
     const body = JSON.parse(event.body);
-    // const eventObject = event;
-    // const body = event.body; // for local invovation
+
+    // const eventObject = event;  // for local invovation
+    // const body = event.body;    // for local invovation
 
     const params = {
       vendorId: eventObject.pathParameters.vendorId,
