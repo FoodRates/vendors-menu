@@ -17,6 +17,7 @@
     "middy": "^0.36.0"
   },
   "devDependencies": {
+    "dynamo-update-expression": "^1.0.8",
     "serverless-iam-roles-per-function": "^3.2.0"
   }
 }
