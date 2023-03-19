@@ -19,7 +19,6 @@ const formUpdateExpression = (original, modified) => {
 };
 
 const processPutItemRequest = (params) => {
-  console.log("params:::: ", params);
   const dynamoDB = new DynamoDB.DocumentClient({
     region: "us-west-1",
     profile: "default",
@@ -27,6 +26,14 @@ const processPutItemRequest = (params) => {
 
   const { value } = params;
   const { original, modified } = value;
+  console.log(
+    "params:::: ",
+    params,
+    "\noriginal: ",
+    original,
+    "\nmodified: ",
+    modified
+  );
 
   const updatedExpressionParams = formUpdateExpression(original, modified);
   const {
