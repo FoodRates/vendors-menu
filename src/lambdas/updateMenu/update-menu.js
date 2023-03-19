@@ -75,7 +75,7 @@ const processPutItemRequest = (params) => {
 const handler = async (event) => {
   const stringified = JSON.stringify(event);
   const parsedEvent = JSON.parse(stringified);
-  console.log("parsedEvent: ", parsedEvent);
+  console.log("parsedEvent: ", parsedEvent.body);
   const response = { statusCode: 200 };
   try {
     // const eventObject = JSON.parse(event);
@@ -84,8 +84,8 @@ const handler = async (event) => {
     // const body = event.body; // for local invovation
 
     const params = {
-      vendorId: event.pathParameters.vendorId,
-      value: event.body,
+      vendorId: parsedEvent.pathParameters.vendorId,
+      value: JSON.parse(parsedEvent.body),
     };
 
     // console.log("what is it? ", typeof params, params);
