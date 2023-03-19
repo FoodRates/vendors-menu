@@ -73,7 +73,7 @@ const processPutItemRequest = (params) => {
 };
 
 const handler = async (event) => {
-  const parsedEvent = JSON.parse(event);
+  const parsedEvent = event.json();
   console.log("parsedEvent: ", parsedEvent);
   const response = { statusCode: 200 };
   try {
