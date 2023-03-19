@@ -57,10 +57,10 @@ const processPutItemRequest = (params) => {
 
 const handler = async (event) => {
   const response = { statusCode: 200 };
+  console.log("what is it? ", typeof event, event);
   try {
     const eventObject = JSON.parse(event);
     const body = JSON.parse(event.body);
-    console.log("what is it? ", typeof eventObject, eventObject);
     // const eventObject = event; // for local invovation
     // const body = event.body; // for local invovation
 
