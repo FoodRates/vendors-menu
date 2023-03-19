@@ -4,9 +4,8 @@ const middy = require("middy");
 const due = require("../../utils/updateExpressionBuilder");
 
 const formUpdateExpression = (original, modified) => {
-  console.log("original: ", original, "\nmodified: ", modified);
   const updateExpression = due.getUpdateExpression({ original, modified });
-  console.log("updateExpression ---> ", updateExpression);
+
   const {
     UpdateExpression,
     ExpressionAttributeNames,
@@ -21,7 +20,6 @@ const formUpdateExpression = (original, modified) => {
 };
 
 const processPutItemRequest = (params) => {
-  console.log("WHAT TYPE IS IT: ", typeof params, params);
   const dynamoDB = new DynamoDB.DocumentClient({
     region: "us-west-1",
     profile: "default",
@@ -29,14 +27,6 @@ const processPutItemRequest = (params) => {
 
   const { value } = params;
   const { original, modified } = value.body;
-  console.log(
-    typeof original,
-    modified,
-    "\noriginal: ",
-    original,
-    "\nmodified: ",
-    modified
-  );
 
   const updatedExpressionParams = formUpdateExpression(original, modified);
   const {
@@ -49,25 +39,25 @@ const processPutItemRequest = (params) => {
     ExpressionAttributeNames,
     ExpressionAttributeValues,
   });
-  // dynamoDB
-  //   .update({
-  //     TableName: process.env.DYNAMODB_TABLE_NAME,
-  //     Key: {
-  //       vendorId: params.vendorId,
-  //     },
-  //     UpdateExpression: UpdateExpression,
-  //     ExpressionAttributeNames: ExpressionAttributeNames,
-  //     ExpressionAttributeValues: ExpressionAttributeValues,
-  //     ReturnConsumedCapacity: "NONE",
-  //     ReturnValues: "ALL_NEW",
-  //   })
-  //   .promise()
-  //   .then((data) => {
-  //     console.log("Output: ", JSON.stringify(data.Attributes));
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
+  dynamoDB
+    .update({
+      TableName: process.env.DYNAMODB_TABLE_NAME,
+      Key: {
+        vendorId: params.vendorId,
+      },
+      UpdateExpression: UpdateExpression,
+      ExpressionAttributeNames: ExpressionAttributeNames,
+      ExpressionAttributeValues: ExpressionAttributeValues,
+      ReturnConsumedCapacity: "NONE",
+      ReturnValues: "ALL_NEW",
+    })
+    .promise()
+    .then((data) => {
+      console.log("Output: ", JSON.stringify(data.Attributes));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 const handler = async (event) => {
