@@ -29,18 +29,18 @@ const processPutItemRequest = (params) => {
 
   const { value } = params;
   const { original, modified } = value;
-  // console.log(
-  //   "params:::: ",
-  //   params,
-  //   "\noriginal: ",
-  //   original,
-  //   "\nmodified: ",
-  //   modified,
-  //   "\nvalue: ",
-  //   value
-  // );
+  console.log(
+    typeof original,
+    modified,
+    "\noriginal: ",
+    original,
+    "\nmodified: ",
+    modified
+  );
 
-  const updatedExpressionParams = formUpdateExpression(original, modified);
+  const first = JSON.parse(original);
+  const second = JSON.parse(modified);
+  const updatedExpressionParams = formUpdateExpression(first, second);
   const {
     UpdateExpression,
     ExpressionAttributeNames,
