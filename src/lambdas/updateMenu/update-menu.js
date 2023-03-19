@@ -4,7 +4,9 @@ const middy = require("middy");
 const due = require("../../utils/updateExpressionBuilder");
 
 const formUpdateExpression = (original, modified) => {
+  console.log("original: ", original, "\nmodified: ", modified);
   const updateExpression = due.getUpdateExpression({ original, modified });
+  console.log("updateExpression ---> ", updateExpression);
   const {
     UpdateExpression,
     ExpressionAttributeNames,
@@ -48,25 +50,25 @@ const processPutItemRequest = (params) => {
     ExpressionAttributeNames,
     ExpressionAttributeValues,
   });
-  dynamoDB
-    .update({
-      TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: {
-        vendorId: params.vendorId,
-      },
-      UpdateExpression: UpdateExpression,
-      ExpressionAttributeNames: ExpressionAttributeNames,
-      ExpressionAttributeValues: ExpressionAttributeValues,
-      ReturnConsumedCapacity: "NONE",
-      ReturnValues: "ALL_NEW",
-    })
-    .promise()
-    .then((data) => {
-      console.log("Output: ", JSON.stringify(data.Attributes));
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  // dynamoDB
+  //   .update({
+  //     TableName: process.env.DYNAMODB_TABLE_NAME,
+  //     Key: {
+  //       vendorId: params.vendorId,
+  //     },
+  //     UpdateExpression: UpdateExpression,
+  //     ExpressionAttributeNames: ExpressionAttributeNames,
+  //     ExpressionAttributeValues: ExpressionAttributeValues,
+  //     ReturnConsumedCapacity: "NONE",
+  //     ReturnValues: "ALL_NEW",
+  //   })
+  //   .promise()
+  //   .then((data) => {
+  //     console.log("Output: ", JSON.stringify(data.Attributes));
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
 };
 
 const handler = async (event) => {
@@ -82,7 +84,7 @@ const handler = async (event) => {
       value: event.body,
     };
 
-    console.log("what is it? ", typeof params, params);
+    // console.log("what is it? ", typeof params, params);
 
     const updateResult = processPutItemRequest(params);
 
