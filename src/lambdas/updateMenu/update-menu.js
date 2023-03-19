@@ -21,6 +21,7 @@ const formUpdateExpression = (original, modified) => {
 };
 
 const processPutItemRequest = (params) => {
+  console.log("WHAT TYPE IS IT: ", typeof params, params);
   const dynamoDB = new DynamoDB.DocumentClient({
     region: "us-west-1",
     profile: "default",
