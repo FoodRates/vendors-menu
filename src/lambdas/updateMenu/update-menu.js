@@ -28,7 +28,7 @@ const processPutItemRequest = (params) => {
   });
 
   const { value } = params;
-  const { original, modified } = value;
+  const { original, modified } = value.body;
   console.log(
     typeof original,
     modified,
