@@ -25,15 +25,17 @@ const processPutItemRequest = (params) => {
   });
 
   const { value } = params;
-  const { original, modified } = value.body;
-  console.log(
-    "params:::: ",
-    params,
-    "\noriginal: ",
-    original,
-    "\nmodified: ",
-    modified
-  );
+  const { original, modified } = value;
+  // console.log(
+  //   "params:::: ",
+  //   params,
+  //   "\noriginal: ",
+  //   original,
+  //   "\nmodified: ",
+  //   modified,
+  //   "\nvalue: ",
+  //   value
+  // );
 
   const updatedExpressionParams = formUpdateExpression(original, modified);
   const {
@@ -41,7 +43,11 @@ const processPutItemRequest = (params) => {
     ExpressionAttributeNames,
     ExpressionAttributeValues,
   } = updatedExpressionParams;
-
+  console.log({
+    UpdateExpression,
+    ExpressionAttributeNames,
+    ExpressionAttributeValues,
+  });
   dynamoDB
     .update({
       TableName: process.env.DYNAMODB_TABLE_NAME,
