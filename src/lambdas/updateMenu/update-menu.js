@@ -19,6 +19,7 @@ const formUpdateExpression = (original, modified) => {
 };
 
 const processPutItemRequest = (params) => {
+  console.log("params:::: ", params);
   const dynamoDB = new DynamoDB.DocumentClient({
     region: "us-west-1",
     profile: "default",
@@ -57,7 +58,6 @@ const processPutItemRequest = (params) => {
 
 const handler = async (event) => {
   const response = { statusCode: 200 };
-  console.log("what is it? ", typeof event, event);
   try {
     // const eventObject = JSON.parse(event);
     // const body = JSON.parse(event.body);
@@ -68,6 +68,8 @@ const handler = async (event) => {
       vendorId: event.pathParameters.vendorId,
       value: event.body,
     };
+
+    console.log("what is it? ", typeof params, params);
 
     const updateResult = processPutItemRequest(params);
 
